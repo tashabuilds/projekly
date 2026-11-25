@@ -1,0 +1,353 @@
+{
+  "schemaVersion": 2,
+  "project": {
+    "title": "Project Summary: [Project Name / Initiative Title]",
+    "id": "[PRJ-YYYY-001]",
+    "lead": "[Lead Name / Department]",
+    "reportingDate": "[DD MMM YYYY]",
+    "ragStatus": "green"
+  },
+  "scopeHeader": "Scope of<br>Work",
+  "budgetHeader": "Budget &amp;<br>Utilisation",
+  "remarksHeader": "Remarks",
+  "milestonesHeader": "Milestones &amp; Output",
+  "phases": [
+    {
+      "id": 1,
+      "title": "1. Phase 1: Planning & Scoping",
+      "weight": 25,
+      "status": "COMPLETED",
+      "completionPct": 100,
+      "activities": [
+        {
+          "id": "p1-a1",
+          "text": "Define project objectives, deliverables, and success criteria",
+          "weight": 10,
+          "done": true
+        },
+        {
+          "id": "p1-a2",
+          "text": "Conduct stakeholder alignment and resource planning",
+          "weight": 10,
+          "done": true
+        },
+        {
+          "id": "p1-a3",
+          "text": "Obtain formal steering committee / management approval",
+          "weight": 5,
+          "done": true
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "2. Phase 2: Procurement & Onboarding",
+      "weight": 25,
+      "status": "IN PROGRESS",
+      "completionPct": 60,
+      "activities": [
+        {
+          "id": "p2-a1",
+          "text": "Finalise Terms of Reference (TOR) and procurement strategy",
+          "weight": 10,
+          "done": true
+        },
+        {
+          "id": "p2-a2",
+          "text": "Evaluate vendor proposals and complete commercial negotiation",
+          "weight": 5,
+          "done": true
+        },
+        {
+          "id": "p2-a3",
+          "text": "Award contract and conduct formal project kick-off",
+          "weight": 10,
+          "done": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "3. Phase 3: Execution & Delivery",
+      "weight": 25,
+      "status": "UPCOMING",
+      "completionPct": 0,
+      "activities": [
+        {
+          "id": "p3-a1",
+          "text": "Execute fieldwork, data collection, or system implementation",
+          "weight": 10,
+          "done": false
+        },
+        {
+          "id": "p3-a2",
+          "text": "Conduct mid-point quality review and progress tracking",
+          "weight": 10,
+          "done": false
+        },
+        {
+          "id": "p3-a3",
+          "text": "Validate interim outputs against baseline requirements",
+          "weight": 5,
+          "done": false
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "4. Phase 4: Reporting & Closure",
+      "weight": 25,
+      "status": "UPCOMING",
+      "completionPct": 0,
+      "activities": [
+        {
+          "id": "p4-a1",
+          "text": "Compile findings and submit final deliverable report",
+          "weight": 10,
+          "done": false
+        },
+        {
+          "id": "p4-a2",
+          "text": "Present outcomes to stakeholders and obtain formal sign-off",
+          "weight": 10,
+          "done": false
+        },
+        {
+          "id": "p4-a3",
+          "text": "Complete post-implementation handover and project closure",
+          "weight": 5,
+          "done": false
+        }
+      ]
+    }
+  ],
+  "budget": {
+    "currency": "RM",
+    "allocation": 100000,
+    "manualUtilisedPct": null,
+    "monthly": [
+      {
+        "month": "JAN",
+        "raw": "-"
+      },
+      {
+        "month": "FEB",
+        "raw": "10k"
+      },
+      {
+        "month": "MAR",
+        "raw": "10k"
+      },
+      {
+        "month": "APR",
+        "raw": "10k"
+      },
+      {
+        "month": "MAY",
+        "raw": "10k"
+      },
+      {
+        "month": "JUN",
+        "raw": "10k"
+      },
+      {
+        "month": "JUL",
+        "raw": "TBD"
+      },
+      {
+        "month": "AUG",
+        "raw": "TBD"
+      },
+      {
+        "month": "SEP",
+        "raw": "TBD"
+      },
+      {
+        "month": "OCT",
+        "raw": "TBD"
+      },
+      {
+        "month": "NOV",
+        "raw": "TBD"
+      },
+      {
+        "month": "DEC",
+        "raw": "TBD"
+      }
+    ]
+  },
+  "timeline": {
+    "markerPercent": 62.5,
+    "quarters": [
+      "Q1",
+      "Q2",
+      "Q3",
+      "Q4"
+    ],
+    "months": [
+      "JAN",
+      "FEB",
+      "MAR",
+      "APR",
+      "MAY",
+      "JUN",
+      "JUL",
+      "AUG",
+      "SEP",
+      "OCT",
+      "NOV",
+      "DEC"
+    ],
+    "holidays": [
+      {
+        "id": "hol-1",
+        "label": "Holiday 1",
+        "start": 0,
+        "span": 1
+      },
+      {
+        "id": "hol-2",
+        "label": "Holiday 2",
+        "start": 4,
+        "span": 1
+      },
+      {
+        "id": "hol-3",
+        "label": "Holiday 3",
+        "start": 7,
+        "span": 1
+      },
+      {
+        "id": "hol-4",
+        "label": "Holiday 4",
+        "start": 10,
+        "span": 1
+      }
+    ],
+    "lanes": [
+      {
+        "phaseId": 1,
+        "baselineBars": [
+          {
+            "id": "b1-1",
+            "label": "Phase 1: Planning & Scoping (Baseline)",
+            "start": 0,
+            "span": 2
+          }
+        ],
+        "actualBars": [
+          {
+            "id": "a1-1",
+            "label": "Phase 1: Planning & Scoping (Actual)",
+            "start": 0,
+            "span": 2.5,
+            "delayBadge": null
+          }
+        ],
+        "gates": [
+          {
+            "id": "g-1",
+            "code": "G1",
+            "label": "Scope Approved",
+            "start": 2.5
+          }
+        ]
+      },
+      {
+        "phaseId": 2,
+        "baselineBars": [
+          {
+            "id": "b2-1",
+            "label": "Phase 2: Procurement & Onboarding (Baseline)",
+            "start": 2,
+            "span": 2
+          }
+        ],
+        "actualBars": [
+          {
+            "id": "a2-1",
+            "label": "Phase 2: Procurement & Onboarding (Forecast)",
+            "start": 2.5,
+            "span": 3.5,
+            "delayBadge": "\u26a0 +1.5 mo"
+          }
+        ],
+        "gates": [
+          {
+            "id": "g-2",
+            "code": "G2",
+            "label": "Contract Award",
+            "start": 6
+          }
+        ]
+      },
+      {
+        "phaseId": 3,
+        "baselineBars": [
+          {
+            "id": "b3-1",
+            "label": "Phase 3: Execution & Delivery (Baseline)",
+            "start": 4,
+            "span": 4
+          }
+        ],
+        "actualBars": [
+          {
+            "id": "a3-1",
+            "label": "Phase 3: Execution & Delivery (Forecast)",
+            "start": 6,
+            "span": 3.5,
+            "delayBadge": null
+          }
+        ],
+        "gates": []
+      },
+      {
+        "phaseId": 4,
+        "baselineBars": [
+          {
+            "id": "b4-1",
+            "label": "Phase 4: Reporting & Closure (Baseline)",
+            "start": 8,
+            "span": 2
+          }
+        ],
+        "actualBars": [
+          {
+            "id": "a4-1",
+            "label": "Phase 4: Reporting & Closure (Forecast)",
+            "start": 9.5,
+            "span": 1.5,
+            "delayBadge": null
+          }
+        ],
+        "gates": [
+          {
+            "id": "g-3",
+            "code": "G3",
+            "label": "Final Sign-off",
+            "start": 11
+          }
+        ]
+      }
+    ]
+  },
+  "remarks": [
+    {
+      "label": "Mandate & Approval:",
+      "text": "[Insert approval reference, e.g., Approved by Steering Committee on DD MMM YYYY under FY2026 Strategic Initiatives.]"
+    },
+    {
+      "label": "Current Progress Summary:",
+      "text": "[Insert high-level progress update across active workstreams, e.g., Phase 1 completed (25% / 25%); Phase 2 vendor evaluation at 60% phase progress (15% / 25%).]"
+    },
+    {
+      "label": "Key Dependencies / Attention Items:",
+      "text": "[Insert critical path items, pending decisions, or schedule adjustments, e.g., Technical clarification required before contract award targeted for DD MMM YYYY.]"
+    },
+    {
+      "label": "Next Key Milestone:",
+      "text": "[Insert upcoming deliverable or governance gate, e.g., Completion of Phase 2 onboarding and commencement of Phase 3 fieldwork by DD MMM YYYY.]"
+    }
+  ]
+}
