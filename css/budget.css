@@ -1,0 +1,183 @@
+/* ==========================================================================
+   BUDGET, MONTHLY UTILISATION & MILESTONES PANEL
+   ========================================================================== */
+
+.budget-panel {
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  background: #fcfcfd;
+  min-width: 0;
+}
+
+.budget-summary-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.budget-card {
+  padding: 6px 4px;
+  border-right: 1px solid var(--border-color);
+  text-align: center;
+}
+
+.budget-card:last-child {
+  border-right: none;
+}
+
+.budget-card-label {
+  font-size: 8.5px;
+  text-transform: uppercase;
+  color: #555;
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+.budget-card-val {
+  font-size: 11.5px;
+  font-weight: bold;
+  color: var(--primary-blue);
+}
+
+.budget-progress-wrap {
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--label-gray);
+}
+
+.budget-progress-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+
+.budget-bar-bg {
+  width: 100%;
+  height: 7px;
+  background: #d9dde2;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.budget-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-blue), var(--accent-teal));
+  transition: width 0.2s ease, background 0.2s ease;
+}
+
+.monthly-tracker-wrap {
+  padding: 7px 8px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.monthly-tracker-title {
+  font-size: 9.5px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+}
+
+.monthly-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 3px;
+}
+
+.m-cell {
+  border: 1px solid #d5dae0;
+  border-radius: 3px;
+  background: #fff;
+  padding: 2px 2px;
+  text-align: center;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.m-name {
+  font-size: 8.5px;
+  font-weight: bold;
+  color: #555;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1px;
+  margin-bottom: 1px;
+}
+
+.m-amt {
+  font-size: 9.5px;
+  font-weight: bold;
+  color: #111;
+  min-height: 13px;
+}
+
+.m-cell.has-spend {
+  background: #eef6fb;
+  border-color: #9ec5e8;
+}
+
+.m-cell.has-spend .m-amt {
+  color: var(--primary-blue);
+}
+
+/* Milestones & Output inside Left Column */
+.deliverables-wrap {
+  padding: 7px 8px;
+  flex: 1;
+}
+
+.ms-overall-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.ms-overall-pill {
+  font-size: 9.5px;
+  font-weight: bold;
+  color: var(--primary-blue);
+  background: #eef6fb;
+  border: 1px solid #b6d4fe;
+  padding: 1px 6px;
+  border-radius: 10px;
+}
+
+.deliverable-item {
+  margin-bottom: 6px;
+  font-size: 10.5px;
+}
+
+.deliverable-item:last-child {
+  margin-bottom: 0;
+}
+
+.deliverable-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  margin-bottom: 2px;
+  gap: 6px;
+}
+
+.ms-score-wrap {
+  white-space: nowrap;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.progress-track {
+  width: 100%;
+  height: 5px;
+  background: #e2e6ea;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--accent-teal);
+  transition: width 0.2s ease, background-color 0.2s ease;
+}

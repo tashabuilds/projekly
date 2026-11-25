@@ -1,0 +1,58 @@
+/* ==========================================================================
+   BASE STYLES & DESIGN TOKENS
+   ========================================================================== */
+:root {
+  --primary-blue: #0b4a82;
+  --accent-teal: #008b99;
+  --header-gray: #e2e6ec;
+  --label-gray: #f4f6f9;
+  --border-color: #cbd2db;
+  --pink-bar: #f5d0d0;
+  --pink-text: #5c1a1a;
+  --blue-bar: #cce3f6;
+  --blue-accent: #1d6fb8;
+  --blue-text: #0a365c;
+  --remark-text: #111111;
+  --milestone-gold: #f59e0b;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: #eef1f5;
+  padding: 20px;
+  color: #111;
+}
+
+/* Google Sites / Iframe Embedded Mode */
+body.is-embedded {
+  padding: 8px;
+  background-color: #ffffff;
+}
+
+body.is-embedded .slide-container {
+  box-shadow: none;
+  border-color: #d0d7de;
+}
+
+/* Editable visual cue */
+[contenteditable="true"]:hover {
+  outline: 1px dashed #008b99;
+  background-color: rgba(0, 139, 153, 0.05);
+}
+
+[contenteditable="true"]:focus {
+  outline: 2px solid #0b4a82;
+  background-color: #fff;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 8px;
+  }
+}

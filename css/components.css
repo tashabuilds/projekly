@@ -1,0 +1,212 @@
+/* ==========================================================================
+   REUSABLE UI COMPONENTS: BUTTONS, BADGES, MODALS, TOOLTIPS
+   ========================================================================== */
+
+.btn {
+  background: var(--primary-blue);
+  color: #fff;
+  border: none;
+  padding: 7px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: background-color 0.15s ease, opacity 0.15s ease;
+}
+
+.btn:hover { background: #083763; }
+.btn:disabled { opacity: 0.6; cursor: wait; }
+
+.btn-new {
+  background: #0f766e;
+}
+.btn-new:hover {
+  background: #115e59;
+}
+
+.btn-reset {
+  background: #64748b;
+}
+.btn-reset:hover {
+  background: #475569;
+}
+
+.btn-drive {
+  background: #1a73e8;
+}
+.btn-drive:hover {
+  background: #1557b0;
+}
+
+.btn-drive-cfg {
+  background: #f1f5f9;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+  padding: 7px 9px;
+}
+.btn-drive-cfg:hover {
+  background: #e2e8f0;
+}
+
+.btn-slides {
+  background: #d97706;
+}
+.btn-slides:hover {
+  background: #b45309;
+}
+
+/* RAG Status Pill */
+.rag-badge {
+  padding: 7px 14px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 12px;
+  cursor: pointer;
+  user-select: none;
+  text-align: center;
+  border: 1.5px solid;
+}
+
+.rag-amber { background: #fff3cd; color: #856404; border-color: #ffeeba; }
+.rag-green { background: #d4edda; color: #155724; border-color: #c3e6cb; }
+.rag-red   { background: #f8d7da; color: #721c24; border-color: #f5c6cb; }
+
+/* Total Weightage Badge */
+.total-weight-badge {
+  margin-top: 8px;
+  padding: 4px 6px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-size: 10px;
+  font-weight: bold;
+  text-align: center;
+  color: #fff;
+}
+
+.total-weight-badge.weight-warn {
+  background: #fef3c7;
+  color: #92400e;
+  border-color: #f59e0b;
+}
+
+/* Modal Styling */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 16px;
+}
+
+.modal-backdrop.open {
+  display: flex;
+}
+
+.modal-box {
+  background: #fff;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 460px;
+  padding: 20px 24px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+  border: 1px solid #cbd5e1;
+}
+
+.modal-box h3 {
+  font-size: 16px;
+  color: var(--primary-blue);
+  margin-bottom: 8px;
+}
+
+.modal-box p {
+  font-size: 12px;
+  color: #475569;
+  line-height: 1.45;
+  margin-bottom: 12px;
+}
+
+.modal-field {
+  margin-bottom: 12px;
+}
+
+.modal-field label {
+  display: block;
+  font-size: 11.5px;
+  font-weight: bold;
+  color: #1e293b;
+  margin-bottom: 4px;
+}
+
+.modal-field input {
+  width: 100%;
+  padding: 8px 10px;
+  font-size: 12.5px;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.iframe-notice {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: #1e3a8a;
+  padding: 8px 10px;
+  border-radius: 4px;
+  font-size: 11.5px;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+/* Live Month Span Tooltip while Dragging */
+.bar-tooltip {
+  position: fixed;
+  background: #1e293b;
+  color: #fff;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 4px;
+  pointer-events: none;
+  z-index: 999;
+  display: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Universal Delete Badge on Hover */
+.del-btn {
+  position: absolute;
+  top: -6px;
+  right: -4px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #dc2626;
+  color: #fff;
+  border: 1px solid #fff;
+  font-size: 10px;
+  line-height: 11px;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  display: none;
+  z-index: 25;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.del-btn:hover {
+  background: #991b1b;
+  transform: scale(1.15);
+}

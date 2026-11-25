@@ -1,0 +1,485 @@
+/* ==========================================================================
+   INTERACTIVE TIMELINE & GANTT CHART
+   ========================================================================== */
+
+.timeline-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background: #fff;
+  overflow-x: auto;
+}
+
+.timeline-inner {
+  min-width: 680px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  position: relative;
+}
+
+/* Gantt Top Header: Add Controls + Legend */
+.gantt-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+  background: #f8fafc;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 10px;
+  color: #334155;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.gantt-action-bar {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.lane-select {
+  font-size: 10px;
+  padding: 2px 4px;
+  border: 1px solid #cbd5e1;
+  border-radius: 3px;
+  background: #fff;
+  color: #1e293b;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.add-chip-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 9.5px;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 3px;
+  border: 1px solid #cbd5e1;
+  background: #fff;
+  color: #1e293b;
+  cursor: pointer;
+  transition: all 0.12s ease;
+}
+
+.add-chip-btn:hover {
+  background: #e2e8f0;
+  border-color: #94a3b8;
+}
+
+.add-chip-btn.btn-add-pink { border-color: #e5a9a9; background: #fdf2f2; color: #7f1d1d; }
+.add-chip-btn.btn-add-pink:hover { background: #fce4e4; }
+.add-chip-btn.btn-add-blue { border-color: #93c5fd; background: #eff6ff; color: #1e3a8a; }
+.add-chip-btn.btn-add-blue:hover { background: #dbeafe; }
+.add-chip-btn.btn-add-gate { border-color: #fcd34d; background: #fffbeb; color: #92400e; }
+.add-chip-btn.btn-add-gate:hover { background: #fef3c7; }
+
+.gantt-legend {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  font-size: 10px;
+  color: #334155;
+  font-weight: 500;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.swatch-pink {
+  width: 14px;
+  height: 8px;
+  background: var(--pink-bar);
+  clip-path: polygon(0% 0%, calc(100% - 3px) 0%, 100% 50%, calc(100% - 3px) 100%, 0% 100%);
+}
+
+.swatch-blue {
+  width: 14px;
+  height: 8px;
+  background: var(--blue-bar);
+  border-left: 2px solid var(--blue-accent);
+  clip-path: polygon(0% 0%, calc(100% - 3px) 0%, 100% 50%, calc(100% - 3px) 100%, 0% 100%);
+}
+
+.swatch-gate {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #fef3c7;
+  border: 1.5px solid var(--milestone-gold);
+  color: #92400e;
+  font-size: 7.5px;
+  font-weight: bold;
+}
+
+.swatch-delay {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 3px;
+  height: 13px;
+  border-radius: 3px;
+  background: #fef3c7;
+  border: 1px solid #f59e0b;
+  color: #b45309;
+  font-size: 8px;
+  font-weight: bold;
+}
+
+.swatch-hol {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 2px;
+  background: #cbd5e1;
+}
+
+.interactive-bar:hover .del-btn,
+.holiday-pill:hover .del-btn,
+.gate-pill:hover .del-btn,
+.delay-badge:hover .del-btn {
+  display: block;
+}
+
+/* Quarters & Months Header */
+.calendar-header {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  text-align: center;
+  font-weight: bold;
+  font-size: 11.5px;
+}
+
+.quarter-block {
+  grid-column: span 3;
+  background-color: var(--primary-blue);
+  color: #fff;
+  padding: 5px;
+  border-right: 1px solid rgba(255, 255, 255, 0.35);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+  letter-spacing: 0.5px;
+}
+
+.quarter-block:last-of-type {
+  border-right: none;
+}
+
+.month-cell {
+  background-color: var(--header-gray);
+  color: #1e293b;
+  padding: 5px 2px;
+  border-right: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  font-size: 10.5px;
+  letter-spacing: 0.3px;
+}
+
+.month-cell:last-child {
+  border-right: none;
+}
+
+/* Dedicated Interactive Public Holiday Strip */
+.holiday-strip {
+  position: relative;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  height: 25px;
+  width: 100%;
+  background-image: linear-gradient(to right, #e2e8f0 1px, transparent 1px);
+  background-size: calc(100% / 12) 100%;
+}
+
+.holiday-pill {
+  position: absolute;
+  top: 3px;
+  height: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-size: 9px;
+  font-weight: 600;
+  color: #475569;
+  background: #e2e8f0;
+  border: 1px solid #cbd5e1;
+  border-radius: 3px;
+  padding: 0 6px;
+  white-space: nowrap;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+  z-index: 5;
+  transition: background-color 0.12s ease, box-shadow 0.12s ease;
+}
+
+.holiday-pill:hover {
+  background: #cbd5e1;
+  color: #1e293b;
+  z-index: 14;
+}
+
+.holiday-pill.active-drag {
+  cursor: grabbing;
+  background: #cbd5e1;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  z-index: 16;
+}
+
+.holiday-pill::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #64748b;
+  flex-shrink: 0;
+}
+
+.holiday-label {
+  cursor: text;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Structured Swimlanes Container */
+.gantt-lanes {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-image:
+    linear-gradient(to right, #e2e8f0 1px, transparent 1px),
+    linear-gradient(to right, transparent 25%, rgba(241, 245, 249, 0.7) 25%, rgba(241, 245, 249, 0.7) 50%, transparent 50%, transparent 75%, rgba(241, 245, 249, 0.7) 75%);
+  background-size: calc(100% / 12) 100%, 100% 100%;
+}
+
+.track-lane {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3px;
+  padding: 6px 0;
+  border-bottom: 1px solid #edf2f7;
+  flex: 1;
+}
+
+.track-lane:last-child {
+  border-bottom: none;
+}
+
+/* Full-Width Track Row for Seamless Positioning & Dragging */
+.bar-track-row {
+  position: relative;
+  height: 21px;
+  width: 100%;
+}
+
+/* Interactive Chevron Bars */
+.interactive-bar {
+  position: absolute;
+  top: 0;
+  height: 21px;
+  padding: 0 14px 0 8px;
+  font-size: 10.5px;
+  display: flex;
+  align-items: center;
+  clip-path: polygon(0% 0%, calc(100% - 8px) 0%, 100% 50%, calc(100% - 8px) 100%, 0% 100%);
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+  transition: filter 0.12s ease, box-shadow 0.12s ease;
+}
+
+.interactive-bar .del-btn {
+  top: 2px;
+  right: 11px;
+  width: 13px;
+  height: 13px;
+  line-height: 10px;
+  font-size: 9px;
+}
+
+.interactive-bar:hover {
+  filter: brightness(0.97);
+  z-index: 12;
+}
+
+.interactive-bar.active-drag {
+  cursor: grabbing;
+  filter: brightness(0.94);
+  z-index: 16;
+}
+
+.bar-baseline {
+  background-color: var(--pink-bar);
+  color: var(--pink-text);
+  font-weight: 700;
+  border-left: 3px solid #d98282;
+}
+
+.bar-actual {
+  background-color: var(--blue-bar);
+  color: var(--blue-text);
+  font-weight: 600;
+  border-left: 3px solid var(--blue-accent);
+}
+
+.bar-label {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: text;
+  padding: 0 2px;
+}
+
+/* Left & Right Resize Handles on Arrows */
+.resize-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 9px;
+  cursor: ew-resize;
+  z-index: 8;
+}
+
+.resize-left { left: 0; }
+.resize-right { right: 0; }
+
+.resize-handle::after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  bottom: 5px;
+  width: 2px;
+  background: rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.resize-left::after { left: 2px; }
+.resize-right::after { right: 5px; }
+
+.interactive-bar:hover .resize-handle::after {
+  opacity: 1;
+}
+
+/* Inline Delay Badge */
+.delay-badge {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  background: #fef3c7;
+  border: 1px solid #f59e0b;
+  color: #92400e;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 1px 5px;
+  border-radius: 3px;
+  white-space: nowrap;
+  margin-right: 5px;
+  flex-shrink: 0;
+}
+
+/* Independent Draggable Key Gate Pills */
+.gate-pill {
+  position: absolute;
+  top: 1px;
+  height: 19px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: #fffbeb;
+  border: 1px solid #fcd34d;
+  border-radius: 12px;
+  padding: 1px 7px 1px 2px;
+  font-size: 9.5px;
+  font-weight: 600;
+  color: #78350f;
+  white-space: nowrap;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+  z-index: 9;
+}
+
+.gate-pill:hover {
+  background: #fef3c7;
+  z-index: 14;
+}
+
+.gate-pill.active-drag {
+  cursor: grabbing;
+  z-index: 16;
+}
+
+.gate-code {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--milestone-gold);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8px;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+/* Draggable Vertical Red Timeline Marker */
+.red-tracker {
+  position: absolute;
+  top: 28px;
+  bottom: 0;
+  left: 62.5%;
+  width: 16px;
+  margin-left: -8px;
+  z-index: 18;
+  cursor: ew-resize;
+  user-select: none;
+  touch-action: none;
+}
+
+.red-tracker::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 7px;
+  width: 2px;
+  background-color: #dc2626;
+  transition: box-shadow 0.15s ease;
+}
+
+.red-tracker:hover::after,
+.red-tracker.dragging::after {
+  box-shadow: 0 0 6px rgba(220, 38, 38, 0.7);
+}
+
+.red-tracker::before {
+  content: "";
+  position: absolute;
+  top: 45px;
+  left: 1px;
+  width: 14px;
+  height: 19px;
+  background-color: #dc2626;
+  clip-path: polygon(0 0, 100% 0, 100% 70%, 50% 100%, 0 70%);
+  transition: transform 0.15s ease;
+}
+
+.red-tracker:hover::before,
+.red-tracker.dragging::before {
+  transform: scale(1.18);
+}

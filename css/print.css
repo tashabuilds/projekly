@@ -1,0 +1,34 @@
+/* ==========================================================================
+   PRINT & PDF EXPORT STYLES
+   ========================================================================== */
+
+@media print {
+  .toolbar,
+  .bar-tooltip,
+  .gantt-action-bar,
+  .del-btn,
+  .modal-backdrop,
+  .add-act-btn,
+  .act-del-btn {
+    display: none !important;
+  }
+
+  body {
+    background: #fff;
+    padding: 0;
+  }
+
+  .slide-container {
+    box-shadow: none;
+    border: none;
+    max-width: 100%;
+  }
+}
+
+/* Hide interactive controls during PDF screenshot capture */
+.exporting-mode .gantt-action-bar,
+.exporting-mode .del-btn,
+.exporting-mode .add-act-btn,
+.exporting-mode .act-del-btn {
+  display: none !important;
+}
